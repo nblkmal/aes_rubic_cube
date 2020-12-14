@@ -29,23 +29,14 @@ public class FileReader_2 {
         
         String result = "";
 
-        for(int j=0; j<1; j++) {
+        for(int j=0; j<TotalSample; j++) {
 
             String samplekey = keyInput.substring( j * AlgoKeySize, ( j * AlgoKeySize )+ AlgoKeySize );
 
             int textformula = ( j * AlgoPlainTextSize / 4 ) * PlainTextBlockSize;
             
-            //char hexdec[] = new char[250017] ;
-
             String sampletext = hexToBin(textInput.substring( textformula, textformula + (AlgoPlainTextSize * PlainTextBlockSize / 4)).toUpperCase());
-            
-            // System.out.println(sampletext + "\n");
-            // System.out.println(sampletext.length());
-
-            // System.out.println(samplekey + "\n");
-            // System.out.println(samplekey.length());
-            //System.out.println(samplekey); 
-            
+                        
             
             for(int k=0; k<1; k++) {
 
@@ -64,16 +55,13 @@ public class FileReader_2 {
                 System.out.println("\nCiphertext (binary) : " + hextobinary(result));
                 System.out.println("\nCiphertext length: " + hextobinary(result).length());
 
-
                 System.out.println("Sample : " + j + " Block : " + k);
-
-                
-                
+  
             }
 
-            // FileWriter writer = new FileWriter("/4th Year Sem 1/Thesis 2/test_RPRK_Output.txt");
-            // writer.write(result);
-            // writer.close();
+            FileWriter writer = new FileWriter("/4th Year Sem 1/Thesis 2/test_RPRK_Output.txt");
+            writer.write(result);
+            writer.close();
 
         }
         

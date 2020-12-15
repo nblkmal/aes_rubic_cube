@@ -38,7 +38,7 @@ public class FileReader_2 {
             String sampletext = hexToBin(textInput.substring( textformula, textformula + (AlgoPlainTextSize * PlainTextBlockSize / 4)).toUpperCase());
                         
             
-            for(int k=0; k<1; k++) {
+            for(int k=0; k<PlainTextBlockSize; k++) {
 
                 String inputkey = samplekey;
                 String inputtext = sampletext.substring( k * AlgoPlainTextSize, ( k * AlgoPlainTextSize ) + AlgoPlainTextSize);
@@ -49,11 +49,12 @@ public class FileReader_2 {
                 String binary = x.substring(0,32);
                 result += binary;
 
-                System.out.println("\nInput key : " + inputkey + "Length : " + "\n" + inputkey.length());
-                System.out.println("\nInput text : " + inputtext  + "Length : " + "\n" + inputtext.length());
-                System.out.println("\nCiphertext (hex) : " + result);
-                System.out.println("\nCiphertext (binary) : " + hextobinary(result));
-                System.out.println("\nCiphertext length: " + hextobinary(result).length());
+                // ===== DEBUG PROCESS =====
+                // System.out.println("\nInput key : " + inputkey + "Length : " + "\n" + inputkey.length());
+                // System.out.println("\nInput text : " + inputtext  + "Length : " + "\n" + inputtext.length());
+                // System.out.println("\nCiphertext (hex) : " + result);
+                // System.out.println("\nCiphertext (binary) : " + hextobinary(result));
+                // System.out.println("\nCiphertext length: " + hextobinary(result).length());
 
                 System.out.println("Sample : " + j + " Block : " + k);
   

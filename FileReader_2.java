@@ -11,7 +11,8 @@ public class FileReader_2 {
 
         File file = new File("/4th Year Sem 1/Thesis 2/Test/RPRK(Plaintext)_inp_128_hex.txt");
         File file2 = new File("/4th Year Sem 1/Thesis 2/Test/RPRK(Key)_inp_128_bin.txt");
-        
+        String result;
+         
         Scanner sc = new Scanner(file);
         Scanner sc2 = new Scanner(file2);
         
@@ -27,10 +28,10 @@ public class FileReader_2 {
 
         // System.out.println(textInput.substring(i*AlgoKeySize, (i*AlgoKeySize)+128));
         
-        String result = "";
+        
 
         for(int j=0; j<TotalSample; j++) {
-
+            result = "";
             String samplekey = keyInput.substring( j * AlgoKeySize, ( j * AlgoKeySize )+ AlgoKeySize );
 
             int textformula = ( j * AlgoPlainTextSize / 4 ) * PlainTextBlockSize;
@@ -46,7 +47,7 @@ public class FileReader_2 {
                 byte[] enc = encrypt(inputtext.getBytes(), inputkey.getBytes());
                 //String s = new String(enc, StandardCharsets.UTF_8);
                 String x = hex(enc);
-                String binary = x.substring(0,32);
+                String binary = hextobinary(x.substring(0,32));
                 result += binary;
 
                 // ===== DEBUG PROCESS =====
@@ -57,10 +58,9 @@ public class FileReader_2 {
                 // System.out.println("\nCiphertext length: " + hextobinary(result).length());
 
                 System.out.println("Sample : " + j + " Block : " + k);
-  
             }
 
-            FileWriter writer = new FileWriter("/4th Year Sem 1/Thesis 2/test_RPRK_Output.txt");
+            FileWriter writer = new FileWriter("/4th Year Sem 1/Thesis 2/output_RPRK_"+ j +".txt");
             writer.write(result);
             writer.close();
 

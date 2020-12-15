@@ -1,0 +1,2 @@
+javac combine_output.java
+java combine_output.java
